@@ -10,9 +10,12 @@ class Bertin_Realisations_Shortcode {
     }
     public static function render(): string {
         $settings = Bertin_Realisations_Projects::get_settings();
-        if (!is_user_logged_in()) return '<div class="bertin-locked">'.esc_html($settings['unauthorized_message']).'</div>';
+        global $post;
+        $has_pass = $post instanceof WP_Post ? !empty($post->post_password) : false;
+        $allowed = is_user_logged_in() || ($has_pass && !post_password_required($post));
+        if (!empty($settings['require_login']) && !$allowed) return '<div class="bertin-locked">'.esc_html($settings['unauthorized_message']).'</div>';
         wp_enqueue_style('leaflet'); wp_enqueue_script('leaflet'); wp_enqueue_style('bertin-front'); wp_enqueue_script('bertin-front');
-        wp_localize_script('bertin-front','BertinApp',['rest'=>esc_url_raw(rest_url('bertin/v1'))]);
+        wp_localize_script('bertin-front','BertinApp',['rest'=>esc_url_raw(rest_url('bertin/v1')),'settings'=>$settings]);
         ob_start(); include BERTIN_REALISATIONS_PATH.'templates/front-app.php'; return ob_get_clean();
     }
 }
