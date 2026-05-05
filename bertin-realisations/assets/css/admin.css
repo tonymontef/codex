@@ -1,1 +1,15 @@
-.bertin-admin-wrap .bertin-kpis{display:flex;gap:10px;flex-wrap:wrap}.bertin-kpi{background:#fff;padding:14px;border-radius:10px;min-width:120px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+:root{--bertin-dark:#111827;--bertin-accent:#f2c300;--bertin-muted:#6b7280;--bertin-bg:#f3f4f6}
+.bertin-admin-wrap,.wrap{font-family:Inter,Segoe UI,Arial,sans-serif}
+.bertin-admin-wrap h1,.wrap h1{font-size:28px;color:var(--bertin-dark);font-weight:800}
+.bertin-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:16px 0 20px}
+.bertin-kpi{background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 8px 24px rgba(17,24,39,.06);font-size:13px;color:var(--bertin-muted)}
+.bertin-kpi strong{display:block;font-size:30px;line-height:1.1;color:var(--bertin-dark);margin-top:6px}
+.wrap .form-table th{color:var(--bertin-dark);font-weight:700}
+.wrap input[type=text],.wrap input[type=number],.wrap input[type=color],.wrap select,.wrap textarea{border:1px solid #d1d5db;border-radius:10px;padding:8px 10px}
+.wrap .button-primary{background:var(--bertin-dark)!important;border-color:var(--bertin-dark)!important;border-radius:10px;padding:4px 16px}
+.wrap .button{border-radius:10px}
+.wrap .widefat{border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.wrap .widefat thead th{background:#111827;color:#fff}
+.wrap .widefat td{vertical-align:middle}
+.wrap .page-title-action{border-radius:10px;border-color:#111827;color:#111827}
+.notice-success{border-left-color:#f2c300}
